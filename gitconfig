@@ -1,0 +1,39 @@
+[user]
+	email = mwani@microsoft.com
+	name  = Muhammad Falak R Wani
+[alias]
+	br = branch -vv
+	ch = status -uno
+	ci = commit -s
+	cl = clone
+	co = checkout
+	d  = diff
+	dc = diff --cached
+	dump = cat-file -p
+	fo = fetch origin
+	fa = fetch --all --tags
+	lga = log --oneline --graph --all --decorate --date=relative
+	lo = log --oneline
+	pfl = push --force-with-lease
+	pd = push --delete
+	pur = pull --rebase
+	recent = branch -a --sort=-committerdate
+	revert = revert -s
+	st = status
+	type = cat-file -t
+	unstage = reset HEAD --
+	rup = remote update --prune
+[pull]
+	rebase = true
+	ff = only
+[branch]
+	autosetuprebase = always
+[rerere]
+	enabled = true
+[fetch]
+	prune = true
+[commit]
+	gpgsign = true
+[diff]
+	colorMoved = zebra
+

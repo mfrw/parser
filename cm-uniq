@@ -1,0 +1,9 @@
+#!/bin/bash
+
+GIT_START_REF='upstream/main'
+if [ ! -z "$1" ]
+  then
+    GIT_START_REF=$1
+fi
+
+git show --name-only ${GIT_START_REF}.. | rg '^SPECS.*\.spec$' | sort | uniq
