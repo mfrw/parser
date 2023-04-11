@@ -47,6 +47,7 @@ RUN tdnf install -y \
 	     ca-certificates \
 	     dnf \
 	     git \
+	     jq \
 	     python3-pip \
 	     rpmdevtools \
 	     sudo \
@@ -61,24 +62,25 @@ RUN pip install --upgrade pip
 
 RUN pip install pathlib specfile validators
 
-RUN adduser mfrw
-RUN mkdir -p /home/mfrw/bin
-RUN chown -R mfrw:mfrw /home/mfrw
+RUN groupadd -g 1000 mfrw
+RUN adduser -m mfrw -u 1000 -g 1000
 
 
 WORKDIR /home/mfrw
 ADD spec.py /home/mfrw/bin/p
-RUN chmod 777 /home/mfrw/bin/p
+RUN chmod a+x /home/mfrw/bin/p
 ADD cm-uniq /home/mfrw/bin/cm-uniq
-RUN chmod 777 /home/mfrw/bin/cm-uniq
+RUN chmod a+x /home/mfrw/bin/cm-uniq
 ADD cgmupdate.py /home/mfrw/bin/cgmupdate
-RUN chmod 777 /home/mfrw/bin/cgmupdate
+RUN chmod a+x /home/mfrw/bin/cgmupdate
 ADD gitconfig /home/mfrw/.gitconfig
-RUN chmod 777 /home/mfrw/bin/cgmupdate
+RUN chmod a+x /home/mfrw/bin/cgmupdate
 ADD bashrc /home/mfrw/.bashrc
 RUN chmod 777 /home/mfrw/.bashrc
+RUN chown -R mfrw:mfrw /home/mfrw
 
 USER mfrw
+
 
 # Install rust and other shenanigans
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --profile default -y
