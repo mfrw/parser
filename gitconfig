@@ -1,6 +1,23 @@
 [user]
 	email = mwani@microsoft.com
 	name  = Muhammad Falak R Wani
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+[delta]
+	features = side-by-side linux-numbers 
+	whitespace-error-style = 22 reverse
+#	side-by-side = true
+	navigate = true
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[interactive]
+	diffFilter = delta --color-only
 [alias]
 	br = branch -vv
 	ch = status -uno
@@ -11,7 +28,7 @@
 	dc = diff --cached
 	dump = cat-file -p
 	fo = fetch origin
-	fa = fetch --all --tags
+	fa = fetch --all --tags -j8
 	lga = log --oneline --graph --all --decorate --date=relative
 	lo = log --oneline
 	pfl = push --force-with-lease
