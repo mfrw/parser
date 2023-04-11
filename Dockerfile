@@ -60,7 +60,7 @@ RUN dnf -y install python3-pip
 
 RUN pip install --upgrade pip
 
-RUN pip install pathlib specfile validators
+RUN pip install pathlib specfile validators decorator pyrpm python-rpm-spec rpm
 
 RUN groupadd -g 1000 mfrw
 RUN adduser -m mfrw -u 1000 -g 1000
