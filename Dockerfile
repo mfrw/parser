@@ -60,7 +60,21 @@ RUN dnf -y install python3-pip
 
 RUN pip install --upgrade pip
 
-RUN pip install pathlib specfile validators decorator pyrpm python-rpm-spec rpm acl
+RUN pip install  \
+	decorator==5.1.1\
+	gpg==1.16.0\
+	libcomps==0.1.18\
+	lxml==4.9.1\
+	pathlib==1.0.1\
+	pip==23.2.1\
+	Pygments==2.4.2\
+	pyrpm==0.4\
+	python-rpm-spec==0.14.1\
+	rpm==4.18.0\
+	setuptools==58.1.0\
+	specfile==0.20.2\
+	typing_extensions==4.7.1\
+	validators==0.20.0
 
 RUN groupadd -g 1000 mfrw
 RUN adduser -m mfrw -u 1000 -g 1000
