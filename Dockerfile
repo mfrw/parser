@@ -13,8 +13,7 @@ RUN tdnf install -y \
      mariner-repos-extras-preview \
      mariner-repos-microsoft \
      mariner-repos-microsoft-preview \
-     mariner-repos-preview \
-     mariner-repos-shared
+     mariner-repos-preview
 
 # Get ALL Macros
 RUN tdnf install -y \
